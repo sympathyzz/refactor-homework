@@ -6,3 +6,13 @@ employeeTest('test1: toString with name is gavin and type is engineer',t => {
     t.is("gavin (engineer)",employee.toString())
 })
 
+employeeTest('test2: validateType name gavin and type star',t => {
+    try{
+        new Employee("gavin","star");
+        t.fail();
+    }catch(e){
+        t.is('Employee cannot be of type star',e.message)
+    }
+})
+
+
