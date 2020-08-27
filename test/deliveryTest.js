@@ -13,3 +13,14 @@ deliveryTest('test1:isRush true ,deliveryState is MA',t => {
     };
     t.is(2,deliveryDate(anOrder,true))
 })
+deliveryTest('test2:isRush true ,deliveryState is NH',t => {
+    const anOrder={
+        deliveryState:'NH',
+        placedOn:{
+            plusDays:(plusTime)=>{
+                return plusTime;
+            }
+        }
+    };
+    t.is(3,deliveryDate(anOrder,true))
+})
