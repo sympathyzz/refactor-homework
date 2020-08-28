@@ -99,3 +99,7 @@ const history = [
 ];
 const myRating = rating(voyage, history);
 console.log(`myRating: ${myRating}`);
+
+module.exports = {
+  rating,voyageProfitFactor,voyageRisk,captainHistoryRisk
+}
