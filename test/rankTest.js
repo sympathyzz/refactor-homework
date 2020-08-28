@@ -177,3 +177,27 @@ rankTest('Test8: voyage zone east-indies and voyage length is 9',t => {
     };
     t.is(8,voyageRisk(voyage))
 })
+
+rankTest('Test9: voyage zone is china and history length is 4',t => {
+  const voyage = {
+    zone: 'china',
+    length: 9,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: 2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    }
+  ];
+  t.is(3,captainHistoryRisk(voyage,history))
+})
