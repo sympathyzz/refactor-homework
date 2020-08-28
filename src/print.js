@@ -1,25 +1,7 @@
 function printOwing(invoice) {
-    console.log('***********************');
-    console.log('**** Customer Owes ****');
-    console.log('***********************');
-
     const outstanding = calculateOutstanding(invoice);
-
-    // record due date
     recordDueDate(invoice);
-
-    // print details
-    console.log(`name: ${invoice.customer}`);
-    console.log(`amount: ${outstanding}`);
-    console.log(`amount: ${invoice.dueDate.toLocaleDateString()}`);
-
-    const logInfo = '***********************\n' +
-        '**** Customer Owes ****\n' +
-        '***********************\n' +
-        `name: ${invoice.customer}\n` +
-        `amount: ${outstanding}\n` +
-        `amount: ${invoice.dueDate.toLocaleDateString()}`
-    return logInfo;
+    return printLog(invoice,outstanding);
 }
 
 function calculateOutstanding(invoice) {
@@ -33,6 +15,22 @@ function calculateOutstanding(invoice) {
 function recordDueDate(invoice) {
     const today = new Date();
     invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+}
+
+function printLog(invoice,outstanding){
+    console.log('***********************');
+    console.log('**** Customer Owes ****');
+    console.log('***********************');
+    console.log(`name: ${invoice.customer}`);
+    console.log(`amount: ${outstanding}`);
+    console.log(`amount: ${invoice.dueDate.toLocaleDateString()}`);
+    const logInfo = '***********************\n' +
+        '**** Customer Owes ****\n' +
+        '***********************\n' +
+        `name: ${invoice.customer}\n` +
+        `amount: ${outstanding}\n` +
+        `amount: ${invoice.dueDate.toLocaleDateString()}`
+    return logInfo;
 }
 
 module.exports = {
