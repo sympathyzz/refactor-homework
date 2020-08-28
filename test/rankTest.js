@@ -225,3 +225,28 @@ rankTest('Test10: voyage zone is china and hasChina history length is 11 and voy
     ];
     t.is('A',rating(voyage,history))
 })
+
+rankTest('Test11: voyage zone is china and hasChina history length is 4 and voyage length is 15',t => {
+    const voyage = {
+        zone: 'china',
+        length: 15,
+    };
+    const history = [
+        {
+            zone: 'east-indies',
+            profit: 5,
+        },{
+            zone: 'west-indies',
+            profit: 15,
+        },{
+            zone: 'china',
+            profit: 2,
+        },
+        {
+            zone: 'west-africa',
+            profit: 7,
+        }
+    ];
+    t.is('A',rating(voyage,history))
+})
+
