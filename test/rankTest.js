@@ -170,10 +170,10 @@ rankTest('Test7: voyage zone east-indies and history hasChina and voyage length 
     t.is(3,voyageProfitFactor(voyage,history))
 })
 
-rankTest('Test8: voyage zone east-indies and history hasChina and voyage length is 3',t => {
+rankTest('Test8: voyage zone east-indies and voyage length is 9',t => {
     const voyage = {
         zone: 'east-indies',
-        length: 3,
+        length: 9,
     };
-    t.is(5,voyageRisk(voyage))
+    t.is(8,voyageRisk(voyage))
 })
