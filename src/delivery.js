@@ -1,22 +1,18 @@
 function deliveryDate(anOrder, isRush) {
     if (isRush) {
-        return deliveryDateIsRush(anOrder);
+        return calculateRushDeliveryDate(anOrder);
     } else {
         return deliveryDateIsNotRush(anOrder);
     }
 }
 
-    function deliveryDateIsRush(anOrder) {
-        let deliveryTime;
-        if ([
-            'MA',
-            'CT',
-        ].includes(anOrder.deliveryState)) {
+    function calculateRushDeliveryDate(anOrder) {
+        let deliveryTime=0;
+        const nearCity = ['MA', 'CT',];
+        const farCity = ['NY', 'NH',];
+        if (nearCity.includes(anOrder.deliveryState)) {
             deliveryTime = 1;
-        } else if ([
-            'NY',
-            'NH',
-        ].includes(anOrder.deliveryState)) {
+        } else if (farCity.includes(anOrder.deliveryState)) {
             deliveryTime = 2;
         } else {
             deliveryTime = 3;
