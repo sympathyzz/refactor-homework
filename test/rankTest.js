@@ -121,3 +121,28 @@ rankTest('Test5: voyage zone east-indies and history hasChina and voyage length 
   ];
   t.is(3,voyageProfitFactor(voyage,history))
 })
+
+rankTest('Test6: voyage zone east-indies and history hasChina and voyage length is 19 and history length is 6',t => {
+  const voyage = {
+    zone: 'east-indies',
+    length: 19,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },{},{}
+  ];
+  t.is(2,voyageProfitFactor(voyage,history))
+})
+
