@@ -17,4 +17,17 @@ function printOwing (invoice) {
   console.log(`name: ${invoice.customer}`);
   console.log(`amount: ${outstanding}`);
   console.log(`amount: ${invoice.dueDate.toLocaleDateString()}`);
+
+  const logInfo='***********************\n'+
+      '**** Customer Owes ****\n'+
+      '***********************\n'+
+      `name: ${invoice.customer}\n`+
+      `amount: ${outstanding}\n`+
+      `amount: ${invoice.dueDate.toLocaleDateString()}`
+  return logInfo;
 }
+
+module.exports = {
+  printOwing
+}
+
