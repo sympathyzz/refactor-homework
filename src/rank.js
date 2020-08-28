@@ -26,29 +26,21 @@ function isChinaZoneAndHasChina(voyage) {
     return voyage.zone === 'china' && hasChina(history);
 }
 
+function voyageZoneIsChinaAndHistoryHasChina(voyage, history) {
+    return (voyage.zone === 'china' && hasChina(history));
+}
+
 function voyageProfitFactor(voyage, history) {
     let result = 2;
-    if (voyage.zone === 'east-indies') {
-        result += 1;
-    }
-    if (voyage.zone === 'china' && hasChina(history)) {
+    result+=voyage.zone === 'east-indies'?1:0;
+    if (voyageZoneIsChinaAndHistoryHasChina(voyage, history)) {
         result += 4;
-        if (history.length > 10) {
-            result += 1;
-        }
-        if (voyage.length > 12) {
-            result += 1;
-        }
-        if (voyage.length > 18) {
-            result -= 1;
-        }
+        result += history.length>10?1:0;
+        result +=voyage.length >12?1:0;
+        result += voyage.length>18?-1:0;
     } else {
-        if (history.length > 8) {
-            result += 1;
-        }
-        if (voyage.length > 14) {
-            result -= 1;
-        }
+        result += history.length > 8?1:0;
+        result += voyage.length > 14?-1:0;
     }
     return result;
 }
